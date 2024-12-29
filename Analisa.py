@@ -3,9 +3,9 @@ def main():
     print("Start?")
     print("Y/N")
     sb = input("Input: ")
-    if sb == "y":
+    if sb == "y" or "Y":
         Analisa()
-    elif sb == "n":
+    elif sb == "n" or "N":
         exit()
     else:
         print("Invalid input.")
