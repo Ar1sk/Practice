@@ -457,64 +457,115 @@ def Analisa():
         print("Nilai Invalid.")
         exit()
     print("======================")
-    print("\tCash Collateral")
+    print("Cash Collateral")
     print("======================\n")
-    print("Jenis Jaminan: ")
-    print("1. Penawaran")
-    print("2. Pelaksanaan")
-    print("3. Uang Muka")
-    print("4. Pemeliharaan\n")
-    choice_cc = int(input("Pilihan anda: "))
-    cash_collateral = 0
-    if choice_cc == 1:
-        print("Tidak ada Agunan")
-    elif choice_cc == 2: #Pelaksanaan
-        if 33.33 <= total_nilai <= 59.99: #Range 3
-            print("Agunan ditolak")
-        elif 60.00 <= total_nilai <= 77.77: #Range 2
-            if nj <= 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash Collateral: {cash_collateral}")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.1
-                print(f"Cash Collateral: {cash_collateral}")
-        elif 77.78 <= total_nilai <= 100: #Range 1
-            if nj <= 500000000:
-                print(f"Cash collateral: 0%")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash collateral: {cash_collateral}")
-    elif choice_cc == 3: #Uang muka
-        if 33.33 <= total_nilai <= 59.99: #Range 3
-            print("Agunan anda ditolak")
-        elif 60.00 <= total_nilai <= 77.77: #Range 2
-            if nj <= 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash collateral: {cash_collateral}")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.1
-                print(f"Cash collateral: {cash_collateral}")
-        elif 77.78 <= total_nilai <= 100: #Range 1
-            if nj <= 500000000:
-                print("Cash collateral: 0%")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash collateral: {cash_collateral}")
-    elif choice_cc == 4: #Pemeliharaan
-        if 33.33 <= total_nilai <= 59.99: #Range 3
-            print("Agunan anda ditolak")
-        elif 60.00 <= total_nilai <= 77.77: #Range 2
-            if nj <= 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash collateral: {cash_collateral}")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.1
-                print(f"Cash collateral: {cash_collateral}")
-        elif 77.78 <= total_nilai <= 100: #Range 1
-            if nj <= 500000000:
-                print("Cash collateral: 0%")
-            elif nj > 500000000:
-                cash_collateral = nj * 0.05
-                print(f"Cash collateral: {cash_collateral}")
+    print("Jenis Jaminan: " + jpbg)
+    choice_cc = jpbg
+    print("SWASTA/BUMN?")
+    work_type = str(input("Jawaban anda: "))
+    if work_type == "Swasta" or "SWASTA" or "swasta":
+        cash_collateral = 0
+        if choice_cc == "Penawaran" or "penawaran":
+            print("Tidak ada Agunan")
+        elif choice_cc == "Pelaksanaan" or "pelaksanaan": #Pelaksanaan
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash Collateral: {cash_collateral}")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash Collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 500000000:
+                    print(f"Cash collateral: 0%")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+        elif choice_cc == "Uang muka" or "uang muka" or "Uangmuka" or "uangmuka": #Uang muka
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan anda ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 500000000:
+                    print("Cash collateral: 0%")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+        elif choice_cc == "Pemeliharaan" or "pemeliharaan": #Pemeliharaan
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan anda ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 500000000:
+                    print("Cash collateral: 0%")
+                elif nj > 500000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+    elif work_type == "BUMN" or "bumn" or "Bumn":
+        cash_collateral = 0
+        if choice_cc == "Penawaran" or "penawaran":
+            print("Tidak ada Agunan")
+        elif choice_cc == "Pelaksanaan" or "pelaksanaan": #Pelaksanaan
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash Collateral: {cash_collateral}")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash Collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 1000000000:
+                    print(f"Cash collateral: 0%")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+        elif choice_cc == "Uang muka" or "uang muka" or "Uangmuka" or "uangmuka": #Uang muka
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan anda ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 1000000000:
+                    print("Cash collateral: 0%")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+        elif choice_cc == "Pemeliharaan" or "pemeliharaan": #Pemeliharaan
+            if 33.33 <= total_nilai <= 59.99: #Range 3
+                print("Agunan anda ditolak")
+            elif 60.00 <= total_nilai <= 77.77: #Range 2
+                if nj <= 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.1
+                    print(f"Cash collateral: {cash_collateral}")
+            elif 77.78 <= total_nilai <= 100: #Range 1
+                if nj <= 1000000000:
+                    print("Cash collateral: 0%")
+                elif nj > 1000000000:
+                    cash_collateral = nj * 0.05
+                    print(f"Cash collateral: {cash_collateral}")
 
 main()
