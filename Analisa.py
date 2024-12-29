@@ -14,14 +14,14 @@ def Analisa():
     nct = input("Nama Calon Terjamin: ")
     act = input("Alamat Calon Terjamin: ")
     jpbg = input("Jenis Penjaminan Bank Garansi: ")
-    jkb = input("Jumlah Kekayaan Bersih: ")
-    nj = input("Nilai Jaminan: ")
+    jkb = int(input("Jumlah Kekayaan Bersih: Rp."))
+    nj = int(input("Nilai Jaminan: Rp. "))
     print("\n")
     print("Nama Calon Terjamin: " + nct)
     print("Alamat Calon Terjamin: " + act)
     print("Jenis Penjaminan Bank Garansi: " + jpbg)
-    print("Jumlah Kekayaan Bersih: " + jkb)
-    print("Nilai Jaminan: Rp." + nj)
+    print(f"Jumlah Kekayaan Bersih: Rp. {jkb}")
+    print(f"Nilai Jaminan: Rp. {nj}")
     print("======================")
     print("\tCharacter")
     print("======================\n")
@@ -449,30 +449,72 @@ def Analisa():
     print(f"\nTotal Nilai Bobot: {rounded_up}")
     if 33.33 <= total_nilai <= 59.99:
         print("Keputusan Nilai Bobot: Pengajuan Penerbitan Penjaminan Bank Garansi Ditolak")
-        print("======================")
-        print("Cash Collateral")
-        print("======================")
-        print("Range 3: tolak")
-        print("-----------------------")
-        main()
     elif 60.00 <= total_nilai <= 77.77:
         print("Keputusan Nilai Bobot: Pengajuan Penerbitan Penjaminan Bank Garansi Diproses dan mengacu ketentuan Agunan Range 2")
-        print("======================")
-        print("Cash Collateral")
-        print("======================")
-        print("Range 2: 5% - 10%")
-        print("-----------------------")
-        main()
     elif 77.78 <= total_nilai <= 100.00:
         print("Keputusan Nilai Bobot: Pengajuan Penerbitan Penjaminan Bank Garansi Diproses dan mengacu ketentuan Agunan Range 1")
-        print("======================")
-        print("Cash Collateral")
-        print("======================")
-        print("Range 1: 0% - 5%")
-        print("-----------------------")
-        main()
     else:
         print("Nilai Invalid.")
         exit()
+    print("======================")
+    print("\tCash Collateral")
+    print("======================\n")
+    print("Jenis Jaminan: ")
+    print("1. Penawaran")
+    print("2. Pelaksanaan")
+    print("3. Uang Muka")
+    print("4. Pemeliharaan\n")
+    choice_cc = int(input("Pilihan anda: "))
+    cash_collateral = 0
+    if choice_cc == 1:
+        print("Tidak ada Agunan")
+    elif choice_cc == 2: #Pelaksanaan
+        if 33.33 <= total_nilai <= 59.99: #Range 3
+            print("Agunan ditolak")
+        elif 60.00 <= total_nilai <= 77.77: #Range 2
+            if nj <= 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash Collateral: {cash_collateral}")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.1
+                print(f"Cash Collateral: {cash_collateral}")
+        elif 77.78 <= total_nilai <= 100: #Range 1
+            if nj <= 500000000:
+                print(f"Cash collateral: 0%")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash collateral: {cash_collateral}")
+    elif choice_cc == 3: #Uang muka
+        if 33.33 <= total_nilai <= 59.99: #Range 3
+            print("Agunan anda ditolak")
+        elif 60.00 <= total_nilai <= 77.77: #Range 2
+            if nj <= 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash collateral: {cash_collateral}")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.1
+                print(f"Cash collateral: {cash_collateral}")
+        elif 77.78 <= total_nilai <= 100: #Range 1
+            if nj <= 500000000:
+                print("Cash collateral: 0%")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash collateral: {cash_collateral}")
+    elif choice_cc == 4: #Pemeliharaan
+        if 33.33 <= total_nilai <= 59.99: #Range 3
+            print("Agunan anda ditolak")
+        elif 60.00 <= total_nilai <= 77.77: #Range 2
+            if nj <= 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash collateral: {cash_collateral}")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.1
+                print(f"Cash collateral: {cash_collateral}")
+        elif 77.78 <= total_nilai <= 100: #Range 1
+            if nj <= 500000000:
+                print("Cash collateral: 0%")
+            elif nj > 500000000:
+                cash_collateral = nj * 0.05
+                print(f"Cash collateral: {cash_collateral}")
 
 main()
